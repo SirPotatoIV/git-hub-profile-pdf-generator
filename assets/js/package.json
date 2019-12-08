@@ -1,0 +1,23 @@
+{
+  "name": "github-pdf",
+  "version": "1.0.0",
+  "description": "Used to creat PDFs of github profiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirPotatoIV/git-hub-profile-pdf-generator.git"
+  },
+  "author": "Jake O'Toole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SirPotatoIV/git-hub-profile-pdf-generator/issues"
+  },
+  "homepage": "https://github.com/SirPotatoIV/git-hub-profile-pdf-generator#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "inquirer": "^7.0.0"
+  }
+}
