@@ -34,20 +34,15 @@ function generatePDFofGitHubProfile(){
             .then(answers => {
                 // Use user feedback for... whatever!!
                 console.log(JSON.stringify(answers, null, ' '));
+                const stringifiedUserInput = JSON.stringify(answers);
+                getUserProfile(stringifiedUserInput);
             });
-    }
-    promptUser();
+        }
+        promptUser();
     // Get the provided username github profile information
-    // Organize the github profile information for use in generating the pdf
-    // Generate HTML to create the content for the pdf
-    // Generate the PDF
-
-
-
-    // Make a request for a GitHub users profile with a given ID
-    // Followed class activity for some help
-    function getUserProfile() {
-        const githubUsername = "SirPotatoIV";
+    function getUserProfile(stringifiedUserInput) {
+        const userInput = JSON.parse(stringifiedUserInput);
+        const githubUsername = userInput.username;
         const githubUrlRequest = `https://api.github.com/users/${githubUsername}`; 
         
         // Taken from axios module README
@@ -64,3 +59,11 @@ function generatePDFofGitHubProfile(){
     // getUserProfile();
 }
 generatePDFofGitHubProfile();
+    // Organize the github profile information for use in generating the pdf
+    // Generate HTML to create the content for the pdf
+    // Generate the PDF
+
+
+
+    // Make a request for a GitHub users profile with a given ID
+    // Followed class activity for some help
