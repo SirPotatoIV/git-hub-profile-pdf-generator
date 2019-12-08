@@ -62,22 +62,35 @@ function generatePDFofGitHubProfile(){
         // * User name - login
         // * Links to the following:
         //   * User location via Google Maps - location
+        //   * -- This will be need another function
         //   * User GitHub profile - html_url
         //   * User blog - blog
         // * User bio - bio
         // * Number of public repositories - public_repos
         // * Number of followers - followers
         // * Number of GitHub stars - starred_url 
-        // * -- Need to create function to count the stars.
+        // * -- Need to create function to count the stars. GET /users/:username/starred
         // * Number of users following - following
+        
+        // Organize the github profile information for use in generating the pdf
         const {avatar_url, login, location, html_url, blog, bio, public_repos, followers, following} = githubProfileData;
-        console.log(avatar_url, login, location, html_url, blog, bio, public_repos, followers, following);
+        // Change Title
+        // Header
+        // -- Row 1: Profile Picture
+        // -- Row 2: "Hi!"
+        // -- Row 3: "My name is (username)!"
+        // -- Row 4: Links: Location, Github Blog
+        // Main
+        // -- Bio
+        // -- Row 1: Public Repositories / Followers
+        // -- Row 2: GitHub Stars / Following
 
     }
     
 }
 generatePDFofGitHubProfile();
-    // Organize the github profile information for use in generating the pdf
+    // Calculate the users total number of stars
+    // Create link to google maps based on the users Github listed location
     // Generate HTML to create the content for the pdf
     // Generate the PDF
 
