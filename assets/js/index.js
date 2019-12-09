@@ -3,6 +3,9 @@ function generatePDFofGitHubProfile(){
     // Bring in npms (axios, inquirer, and probably one for a pdf)
     const axios = require('axios');
     const inquirer = require('inquirer');
+    // https://www.npmjs.com/package/html-to-pdf
+    // const htmlPdf = require('html-pdf-chrome');
+
     // Get a github username and color from prompts
     function promptUser(){
         // https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/input.js
@@ -30,7 +33,7 @@ function generatePDFofGitHubProfile(){
             )
             .then(answers => {
                 // Use user feedback for... whatever!!
-                console.log(JSON.stringify(answers, null, ' '));
+                // console.log(JSON.stringify(answers, null, ' '));
                 const stringifiedUserInput = JSON.stringify(answers);
                 getUserProfile(stringifiedUserInput);
             });
@@ -73,20 +76,20 @@ function generatePDFofGitHubProfile(){
         // * Number of users following - following
         
         // Organize the github profile information for use in generating the pdf
-        const {avatar_url, login, location, html_url, blog, bio, public_repos, followers, following} = githubProfileData;
+        const { avatar_url: avatarUrl, login, location, html_url: htmlUrl, blog, bio, public_repos: publicRepos, followers, following} = githubProfileData;
         // Change Title
         // Header
         // -- Row 1: Profile Picture
         // -- Row 2: "Hi!"
-        // -- Row 3: "My name is (username)!"
-        // -- Row 4: Links: Location, Github Blog
-        // Main
-        // -- Bio
-        // -- Row 1: Public Repositories / Followers
-        // -- Row 2: GitHub Stars / Following
-
+        // -- Row 3: "/ -- Row 2: GitHub Stars / Following
+        const html = '<p>Hello, world!</p>';
+        const options = {
+            port: 9222, // port Chrome is listening on
+        };
+        // https://www.npmjs.com/package/html-to-pdf
+        // htmlPdf.create(html, options)
+        // .then((pdf) => pdf.toFile('test.pdf'));
     }
-    
 }
 generatePDFofGitHubProfile();
     // Calculate the users total number of stars
