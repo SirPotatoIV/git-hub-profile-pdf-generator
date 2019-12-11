@@ -120,3 +120,5 @@ htmlResume = `<!DOCTYPE html>
     </div>
 </body>
 </html>`
+
+module.exports = {htmlResume};

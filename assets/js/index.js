@@ -37,8 +37,12 @@ function generatePDFofGitHubProfile(){
                 getUserProfile(stringifiedUserInput);
             });
         }
-        promptUser();
-    // Get the provided username github profile information
+    
+    
+        // promptUser();
+    
+    
+        // Get the provided username github profile information
     function getUserProfile(stringifiedUserInput) {
         const userInput = JSON.parse(stringifiedUserInput);
         const githubUsername = userInput.username;
@@ -76,17 +80,11 @@ function generatePDFofGitHubProfile(){
         
         // Organize the github profile information for use in generating the pdf
         const { avatar_url: avatarUrl, login, location, html_url: htmlUrl, blog, bio, public_repos: publicRepos, followers, following} = githubProfileData;
-        // Change Title
-        // Header
-        // -- Row 1: Profile Picture
-        // -- Row 2: "Hi!"
-        // -- Row 3: "/ -- Row 2: GitHub Stars / Following
         
         // Code below take from GitHub user bcbrian to help with understanding how to utilize the npm electron-html-to
         const resumeText = "<p>Hello my name is Jake</p>"
         const fs = require('fs'),
         convertFactory = require('electron-html-to');
-     
      
         const conversion = convertFactory({
             converterPath: convertFactory.converters.PDF
@@ -103,6 +101,12 @@ function generatePDFofGitHubProfile(){
             conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
         });
     }
+    // Function created only for test purposes so prompt, axios, and pdf creation don't need to keep happening.
+    function test(){
+        htmlResume = require('./html-template');
+        console.log(htmlResume.htmlResume)
+    }
+    test();
 }
 generatePDFofGitHubProfile();
     // Calculate the users total number of stars
