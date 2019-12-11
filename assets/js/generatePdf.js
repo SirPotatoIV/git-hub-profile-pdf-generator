@@ -25,10 +25,15 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <title>Document</title>
-                <!-- https://meyerweb.com/eric/tools/css/reset/ -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
-                <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
                 <style>
+                    @page {
+                        margin: 0;
+                    }
+                    *,
+                    *::after,
+                    *::before {
+                    box-sizing: border-box;
+                    }
                     ul{
                         display: flex;
                         flex-direction: row;
@@ -139,8 +144,8 @@
                 </div>
             </body>
             </html>`
-            console.log(htmlResume)
-        //     createPdf(htmlResume);
+      
+            createPdf(htmlResume);
         }
 
         function createPdf(htmlResume){

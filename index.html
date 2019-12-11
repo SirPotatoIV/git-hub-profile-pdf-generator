@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <!-- https://meyerweb.com/eric/tools/css/reset/ -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet"> -->
     <style>
         ul{
             display: flex;
@@ -84,29 +84,28 @@
 <body>
     <div class = mega-container>
         <header class = "header-container">
-            <img class = "item1 profile-pic" src="http://placehold.it/200x200"/>
+            <img class = "item1 profile-pic" src="${avatar_url}"/>
             <div class = "header-text welcome-text">
                 Hi!
             </div>
-            <div class = "header-text users-name">Jake O'Toole</div>
-            <div class = "header-text bio">The Bio goes here</div>
+            <div class = "header-text users-name">My name is ${name}!</div>
             <div class = "item5 links">
                 <ul>
-                    <li id="location" class="link"><a href="https://www.google.com/maps/search/?api=1&Minneapolis,MN">Minneapolis,MN</a></li>
-                    <li id="htmlUrl" class="link"><a href="https://github.com/SirPotatoIV">Github</a></li>
-                    <li id="blog" class="link"><a href="https://www.jakeotoole.com">Blog</a></li>
+                    <li id="location" class="link"><a href="https://www.google.com/maps/search/?api=1&${location}">${location}</a></li>
+                    <li id="htmlUrl" class="link"><a href="${html_url}">Github</a></li>
+                    <li id="blog" class="link"><a href="${blog}">Blog</a></li>
                 </ul>
             </div>
         </header>
         <main class ="main-container">
-            <div class ="item6 bio2">Here is the other bio.</div>
+            <div class ="item6 bio2">${bio}</div>
             <div class="card repositories">
                 <h1>Public Repositories</h1>
-                <p id="repository-count">10</p>
+                <p id="repository-count">${public_repos}</p>
             </div>
             <div class="card followers">
                 <h1>Followers</h1>
-                <p id="followers-count">10</p>
+                <p id="followers-count">${followers}</p>
             </div>
             <div class="card github-stars">
                 <h1>GitHub Stars</h1>
@@ -114,9 +113,9 @@
             </div>
             <div class="card following">
                 <h1>Following</h1>
-                <p id="following-count">10</p>
+                <p id="following-count">${following}</p>
             </div>
         </main>
     </div>
 </body>
-</html>
+</html>`
