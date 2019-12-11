@@ -116,7 +116,7 @@
                         <div class = "header-text users-name">My name is ${name}!</div>
                         <div class = "item5 links">
                             <ul>
-                                <li id="location" class="link"><a href="https://www.google.com/maps/search/?api=1&${location}">${location}</a></li>
+                                <li id="location" class="link"><a href="https://www.google.com/maps/search/?api=1&query=${location}">${location}</a></li>
                                 <li id="htmlUrl" class="link"><a href="${html_url}">Github</a></li>
                                 <li id="blog" class="link"><a href="${blog}">Blog</a></li>
                             </ul>
