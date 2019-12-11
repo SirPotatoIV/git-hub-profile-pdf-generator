@@ -11,7 +11,33 @@
         // * Number of GitHub stars - starred_url 
         // * -- Need to create function to count the stars. GET /users/:username/starred
         // * Number of users following - following
-        
+        const colors = {
+            green: {
+              wrapperBackground: "#E6E1C3",
+              headerBackground: "#C1C72C",
+              headerColor: "black",
+              photoBorderColor: "#black"
+            },
+            blue: {
+              wrapperBackground: "#5F64D3",
+              headerBackground: "#26175A",
+              headerColor: "white",
+              photoBorderColor: "#73448C"
+            },
+            pink: {
+              wrapperBackground: "#879CDF",
+              headerBackground: "#FF8374",
+              headerColor: "white",
+              photoBorderColor: "#FEE24C"
+            },
+            red: {
+              wrapperBackground: "#DE9967",
+              headerBackground: "#870603",
+              headerColor: "white",
+              photoBorderColor: "white"
+            }
+          };
+          
         // Organize the github profile information for use in generating the pdf
 const addUserInformationTohtml= function addUserInfoTohtml(githubProfileData, starCount, selectedColor){
     const obj = githubProfileData;
@@ -25,21 +51,18 @@ const addUserInformationTohtml= function addUserInfoTohtml(githubProfileData, st
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Document</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
             <style>
-                @page {
-                    margin: 0;
-                }
-                *,
-                *::after,
-                *::before {
-                box-sizing: border-box;
-                }
                 ul{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-evenly;
                 }
-
+                body {
+                    background-color: white;
+                    -webkit-print-color-adjust: exact !important;
+                }
                 .mega-container{
                     display: grid;
                     grid-template-rows: 10% 1fr 1fr 10%; 
