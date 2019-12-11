@@ -1,5 +1,4 @@
 # git-hub-profile-pdf-generator
-Using Node.js, generate a PDF of a users GitHub profile based on prompts through Node.js.
 
 ## Description 
 This project has the user input a GitHub username and a color into node.js. It then generates a PDF resume utilizing information from the github api based on the username and utilizies the user input color for styling. The code is taking values from the github api and placing them within an html template, which is converted into a PDF. ---Currently the color styling is not displaying in the PDF---
@@ -10,7 +9,7 @@ GIF of app working:
 ![Animation depicting the code running correctly](#)
 
 ## Installation 
-If all files are kept in a single folder a web browser should be able to run the project and you have an internet connection. You must also have node.js and perform a ndm install to bring in all the necessary node modules.
+Keep all files in a single folder and do not move files around within the folder. You must also have node.js and perform a ndm install to bring in all the necessary node modules.
 
 ## Usage 
 This was primarily made to meet the requirements of a homework assignment. You could use this to as the basis of how to generate a PDF using html, or could modify it to create a better resume generated from GitHub data.
