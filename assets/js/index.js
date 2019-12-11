@@ -1,9 +1,9 @@
 function generatePDFofGitHubProfile(){
-    // Bring in npms (axios, inquirer, and probably one for a pdf)
+    // Bring in npms axios and inquirer. Additional npms brought in later for PDF conversion.
     const axios = require('axios');
     const inquirer = require('inquirer');
+    // File created by me to organize functions
     const generatePdf = require('./generatePdf.js');
-    // https://www.npmjs.com/package/html-to-pdf
 
     // Get a github username and color from prompts
     function promptUser(){
