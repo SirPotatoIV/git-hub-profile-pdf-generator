@@ -33,7 +33,6 @@ function generatePDFofGitHubProfile(){
             )
             .then(answers => {
                 // Use user feedback for... whatever!!
-                // console.log(JSON.stringify(answers, null, ' '));
                 const userInput = answers;
                 countStars(userInput);
             });
@@ -51,7 +50,6 @@ function generatePDFofGitHubProfile(){
             for(let i=0; i < data.length; i++){
                 starCount = data[i].stargazers_count + starCount;
             }
-            console.log(starCount)
             getUserProfile(userInput,starCount);
         });
 
@@ -68,7 +66,6 @@ function generatePDFofGitHubProfile(){
         axios.get(githubUrlRequest)
             .then(function ({data}) {
                 // handle success
-                // console.log(data);
                 const githubProfileData = data;
                 generatePdf.addUserInformationTohtml(githubProfileData, starCount, selectedColor)
             })
