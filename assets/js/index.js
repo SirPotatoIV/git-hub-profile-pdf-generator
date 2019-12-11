@@ -34,16 +34,32 @@ function generatePDFofGitHubProfile(){
             .then(answers => {
                 // Use user feedback for... whatever!!
                 // console.log(JSON.stringify(answers, null, ' '));
-                const stringifiedUserInput = JSON.stringify(answers);
-                getUserProfile(stringifiedUserInput);
+                const userInput = answers;
+                countStars(userInput);
             });
         }
-        promptUser();
+    promptUser();
+
+    function countStars(userInput){
+        const {username} = userInput;
+        const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+
+        let starCount = 0;
+
+        axios.get(queryUrl).then(function({data}) {
+            // console.log(data.length);
+            for(let i=0; i < data.length; i++){
+                starCount = data[i].stargazers_count + starCount;
+            }
+            console.log(starCount)
+            getUserProfile(userInput,starCount);
+        });
+
+    }
     
-    
-        // Get the provided username github profile information
-    function getUserProfile(stringifiedUserInput) {
-        const userInput = JSON.parse(stringifiedUserInput);
+    // Get the provided username github profile information
+    function getUserProfile(userInput, starCount) {
+        const selectedColor = userInput.color;
         const githubUsername = userInput.username;
         const githubUrlRequest = `https://api.github.com/users/${githubUsername}`; 
         
@@ -54,7 +70,7 @@ function generatePDFofGitHubProfile(){
                 // handle success
                 // console.log(data);
                 const githubProfileData = data;
-                generatePdf.addUserInformationTohtml(githubProfileData)
+                generatePdf.addUserInformationTohtml(githubProfileData, starCount, selectedColor)
             })
             .catch(function (error) {
                 // handle error
@@ -64,12 +80,4 @@ function generatePDFofGitHubProfile(){
 }
 generatePDFofGitHubProfile();
     // Calculate the users total number of stars
-    // Create link to google maps based on the users Github listed location
-    // https://developers.google.com/maps/documentation/urls/guide
-    // Generate HTML to create the content for the pdf
-    // Generate the PDF
-
-
-
-    // Make a request for a GitHub users profile with a given ID
-    // Followed class activity for some help
+   
