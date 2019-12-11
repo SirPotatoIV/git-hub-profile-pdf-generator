@@ -1,5 +1,4 @@
 function generatePDFofGitHubProfile(){
-    // Have the application be invoked with sh node index.js ?????
     // Bring in npms (axios, inquirer, and probably one for a pdf)
     const axios = require('axios');
     const inquirer = require('inquirer');
