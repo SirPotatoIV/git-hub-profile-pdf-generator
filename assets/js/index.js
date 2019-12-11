@@ -4,7 +4,6 @@ function generatePDFofGitHubProfile(){
     const axios = require('axios');
     const inquirer = require('inquirer');
     // https://www.npmjs.com/package/html-to-pdf
-    // const htmlPdf = require('html-pdf-chrome');
 
     // Get a github username and color from prompts
     function promptUser(){
@@ -82,18 +81,33 @@ function generatePDFofGitHubProfile(){
         // -- Row 1: Profile Picture
         // -- Row 2: "Hi!"
         // -- Row 3: "/ -- Row 2: GitHub Stars / Following
-        const html = '<p>Hello, world!</p>';
-        const options = {
-            port: 9222, // port Chrome is listening on
-        };
-        // https://www.npmjs.com/package/html-to-pdf
-        // htmlPdf.create(html, options)
-        // .then((pdf) => pdf.toFile('test.pdf'));
+        
+        // Code below take from GitHub user bcbrian to help with understanding how to utilize the npm electron-html-to
+        const resumeText = "<p>Hello my name is Jake</p>"
+        const fs = require('fs'),
+        convertFactory = require('electron-html-to');
+     
+     
+        const conversion = convertFactory({
+            converterPath: convertFactory.converters.PDF
+        });
+        
+        conversion({ html: `${resumeText}` }, function(err, result) {
+             if (err) {
+            return console.error(err);
+            }
+        
+            console.log(result.numberOfPages);
+            console.log(result.logs);
+            result.stream.pipe(fs.createWriteStream('./index.pdf'));
+            conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
+        });
     }
 }
 generatePDFofGitHubProfile();
     // Calculate the users total number of stars
     // Create link to google maps based on the users Github listed location
+    // https://developers.google.com/maps/documentation/urls/guide
     // Generate HTML to create the content for the pdf
     // Generate the PDF
 
